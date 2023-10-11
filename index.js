@@ -1,13 +1,8 @@
-import { createRequestHandler } from "@vercel/node";
-const requestHandler = createRequestHandler({
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        destination: "https://orcamento-riocordas.bubbleapps.io/:path*",
-        permanent: true,
-      },
-    ];
-  },
-});
-export default requestHandler;
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request))
+})
+async function handleRequest(request) {
+  const { pathname } = new URL(request.url)
+  // Redireciona todas as solicitações para https://www.dominio-de-destino.com.br
+  return Response.redirect(`https://orcamento-riocordas.bubbleapps.io${pathname}`, 301)
+}
