@@ -4,7 +4,7 @@ const requestHandler = createRequestHandler({
     return [
       {
         source: "/:path*",
-        destination: "https://www.dominio-de-destino.com.br/:path*",
+        destination: "https://orcamento-riocordas.bubbleapps.io/:path*",
         permanent: true,
       },
     ];
